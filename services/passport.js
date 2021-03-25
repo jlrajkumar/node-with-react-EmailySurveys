@@ -22,7 +22,8 @@ const keys = require('../config/keys');
 passport.use(new googleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
-    callbackURL: 'http://localhost:5000/auth/google/callback'
+    callbackURL: '/auth/google/callback',
+    proxy: true
    
 }, 
  (accessToken, refreshToken, profile, done) => {
