@@ -8,4 +8,5 @@ const userSchema = new Schema( {
 });
 
 
-mongoose.model( 'users', userSchema);
+mongoose.model( 'users', userSchema); //Creates a collection users
+                                      // with userSchema(properties)
