@@ -8,9 +8,12 @@ const authRoutes = require('./routes/authRoutes');
 require('./models/user');  
 const passportConfig = require('./services/passport');
 
-mongoose.connect(keys.mongoURI);
-
-
+mongoose.connect(keys.mongoURI),
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  };
 const app = express(); //All the route handlers we are going to create over time will be associated
 // or somehow registered with "app" obj here
 
