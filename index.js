@@ -7,8 +7,9 @@ const authRoutes = require('./routes/authRoutes');
 
 require('./models/user');  
 const passportConfig = require('./services/passport');
+const dev = require('./config/dev');
 
-mongoose.connect(keys.mongoURI),
+mongoose.connect(dev.mongoURI),
   {
     useNewUrlParser: true,
     useCreateIndex: true,
