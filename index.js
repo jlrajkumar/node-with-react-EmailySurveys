@@ -9,7 +9,7 @@ require('./models/user');
 const passportConfig = require('./services/passport');
 const dev = require('./config/dev');
 
-mongoose.connect(dev.mongoURI),
+mongoose.connect(keys.mongoURI),
   {
     useNewUrlParser: true,
     useCreateIndex: true,
