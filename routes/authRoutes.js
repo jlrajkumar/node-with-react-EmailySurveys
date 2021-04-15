@@ -7,9 +7,8 @@ module.exports = (app) => {
             passport.authenticate('google',{
             scope: ['profile', 'email'] 
             })
-        ).then(res => {
-            console.log(res);
-        });
+       
+        );
 
 
         app.get('/auth/google/callback', 
@@ -24,6 +23,7 @@ module.exports = (app) => {
         });
 
         app.get('/api/current_user', (req, res) => {
+            console.log('CurrentUser: ' +req.user);
             res.send(req.user);
         });
 

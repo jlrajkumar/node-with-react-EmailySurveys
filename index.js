@@ -35,8 +35,9 @@ const app = express(); //All the route handlers we are going to create over time
      })
  );
 
- app.use(passport.initialize());
- app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 authRoutes(app);
 
