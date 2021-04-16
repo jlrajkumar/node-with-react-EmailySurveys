@@ -9,12 +9,7 @@ require('./models/user');
 const passportConfig = require('./services/passport');
 const dev = require('./config/dev');
 
-const keys_params = {
-  googleClientID: '68250754070-leb3b9l6llkjt4kcm88n3335ejac7s5o.apps.googleusercontent.com',
-  googleClientSecret: 'tUnIvYL4ALar5TiUzWV6VdQd' ,
-  mongoURI: 'mongodb+srv://jlrsurveys:Logmein1@jlrsurveys.6zsht.mongodb.net/Emaily?retryWrites=true&w=majority',
-  cookieKey:'lrjaddu@soltex'
-};
+
 
 /*mongoose.connect(keys_params.mongoURI , 
   {
