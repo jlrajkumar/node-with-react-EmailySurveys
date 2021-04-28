@@ -4,21 +4,27 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const authRoutes = require('./routes/authRoutes');
-const connectDB = require ('./services/db_js');
+
 require('./models/user');  
 const passportConfig = require('./services/passport');
 const dev = require('./config/dev');
 
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  autoIndex: false, // Don't build indexes
+  poolSize: 10, // Maintain up to 10 socket connections
+  serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
+  socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+  family: 4 // Use IPv4, skip trying IPv6
+}
 
-
-/*mongoose.connect(keys_params.mongoURI , 
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  });*/
-
-  connectDB();
+mongoose.connect(dev.mongoURI , options)
+        .then(()=>{console.log("connected to JLR Surveys MongoDB")})
+        .catch(err => console.log(err));
+        
 
 const app = express(); //All the route handlers we are going to create over time will be associated
 // or somehow registered with "app" obj here

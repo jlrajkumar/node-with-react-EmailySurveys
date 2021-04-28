@@ -23,7 +23,7 @@ module.exports = (app) => {
         });
 
         app.get('/api/current_user', (req, res) => {
-            console.log('CurrentUser: ' +req.user);
+            //console.log('CurrentUser: ' +req.user);
             res.send(req.user);
         });
 
