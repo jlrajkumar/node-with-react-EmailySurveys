@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
-const authRoutes = require('./routes/authRoutes');
+
+const bodyParser = require('body-parser');
 
 require('./models/user');  
 const passportConfig = require('./services/passport');
 const dev = require('./config/dev');
+const billingRoutes = require('./routes/billingRoutes');
 
 const options = {
   useNewUrlParser: true,
@@ -29,6 +31,8 @@ mongoose.connect(dev.mongoURI , options)
 const app = express(); //All the route handlers we are going to create over time will be associated
 // or somehow registered with "app" obj here
 
+app.use(bodyParser.json());
+
  app.use( 
      cookieSession({
          maxAge: 30 * 24 * 60 *60 * 1000,
@@ -39,8 +43,9 @@ const app = express(); //All the route handlers we are going to create over time
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./routes/authRoutes')(app);
 
-authRoutes(app);
+require('./routes/billingRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 
