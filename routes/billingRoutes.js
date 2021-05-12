@@ -11,6 +11,12 @@ app.post('/api/stripe', async (req, res)=>{
         description:'$5 for 5 Credits',
         source: req.body.id,
     });
-    console.log(charge);
+    
+//Add credits to user after charging the CC
+     req.user.credits += 5;
+   
+//Save user credits to DB 
+     const user =  await  req.user.save();
+    res.send(user);
 });
 };
