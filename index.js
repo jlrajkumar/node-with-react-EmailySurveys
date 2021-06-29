@@ -6,10 +6,12 @@ const passport = require('passport');
 
 const bodyParser = require('body-parser');
 
-require('./models/user');  
+require('./models/User');  
+require('./models/Survey');
 const passportConfig = require('./services/passport');
 const dev = require('./config/dev');
 const billingRoutes = require('./routes/billingRoutes');
+
 
 const options = {
   useNewUrlParser: true,
@@ -46,6 +48,8 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 
 require('./routes/billingRoutes')(app);
+
+require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV === 'production'){
 
