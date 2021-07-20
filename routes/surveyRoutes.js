@@ -11,7 +11,7 @@ const Survey = mongoose.model('surveys');
 module.exports = app =>{
 
     app.get('/api/surveys/thanks', (req,res)=>{
-        res.send('Thanks for submitting your feedback!.');
+        res.send('Thanks for submitting your feedback!');
     });
 
     app.post('/api/surveys', requireLogin, requireCredits, async (req,res) => {
@@ -20,7 +20,7 @@ module.exports = app =>{
 
         const survey = new Survey({
 
-                title, 
+                title,
                 subject,
                 body,
                 recipients: recipients.split(',').map(email =>  ({ email : email.trim()}) ),
