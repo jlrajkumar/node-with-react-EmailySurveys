@@ -11,7 +11,8 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "webhook": "lt -p 5000 -s jlrsurveys"
   },
   "author": "JLRajkumar",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "concurrently": "^6.0.2",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
+    "localtunnel": "^2.0.1",
     "mongoose": "^5.11.15",
     "nodemon": "^2.0.12",
     "passport": "^0.4.1",

@@ -14,6 +14,12 @@ module.exports = app =>{
         res.send('Thanks for submitting your feedback!');
     });
 
+    app.post('/api/surveys/webhooks', (req, res) =>{
+
+        console.log(req.body);
+        res.send({}); //Not to hang the req
+    });
+
     app.post('/api/surveys', requireLogin, requireCredits, async (req,res) => {
 
         const { title, subject, body, recipients } = req.body;
