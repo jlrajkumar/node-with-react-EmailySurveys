@@ -25,6 +25,7 @@ const options = {
   family: 4 // Use IPv4, skip trying IPv6
 }
 
+mongoose.Promise =  global.Promise;
 mongoose.connect(dev.mongoURI , options)
         .then(()=>{console.log("connected to JLR Surveys MongoDB")})
         .catch(err => console.log(err));
