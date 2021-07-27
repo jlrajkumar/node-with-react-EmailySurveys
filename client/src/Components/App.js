@@ -5,13 +5,11 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 
 import Header from './Header'
-
+import Landing from './Landing';
 import Dashboard from './Dashboard';
-
 import SurveyNew from './Surveys/SurveyNew';
 
 
-const Landing  = () => <h2>Landing </h2>
 
 class App extends React.Component{
 
